@@ -1,6 +1,7 @@
 # Day 4 Part 1
 file = open(r'C:\Users\Trevor\Desktop\Python Projects\Advent\day4data.txt').readlines()
-#print(file)
+
+print(file)
 
 l = len(file)
 array = [[" " for x in range(8)] for x in range(l)]
@@ -70,11 +71,13 @@ while i < user:
 
 print(validindex)
 
+vall = len(validindex)
+
 print(f'Valid users part one: {valid}')
 
 i = 0
 valid2 = 0
-while i < user:
+while i <= user:
     if array[i][0] != " " and \
         int(array[i][0]) >= 1920 and int(array[i][0]) <= 2002:
         if array[i][1] != " " and \
@@ -86,7 +89,7 @@ while i < user:
                         if (int(array[i][3].split("cm")[0]) >= 150 and int(array[i][3].split("cm")[0]) <= 193):
                             if array[i][4] != " ":
                                 hcl = array[i][4]
-                                allowed_chars = set('123456789abcdef')
+                                allowed_chars = set('0123456789abcdef')
                                 l5 = len(hcl)
                                 if hcl[0] == "#":
                                     if set(array[i][4].split('#')[1]).issubset(allowed_chars) and l5 == 7:
@@ -97,12 +100,11 @@ while i < user:
                                                 allowed_chars = set('0123456789')
                                                 if set(array[i][6]).issubset(allowed_chars) and len(array[i][6]) == 9:
                                                     valid2 +=1
-                                                    print(array[i][0:7])
                     elif "in" in array[i][3]:
                         if (int(array[i][3].split("in")[0]) >= 59 and int(array[i][3].split("in")[0]) <= 76):
                             if array[i][4] != " ":
                                 hcl = array[i][4]
-                                allowed_chars = set('123456789abcdef')
+                                allowed_chars = set('0123456789abcdef')
                                 l5 = len(hcl)
                                 if hcl[0] == "#":
                                     if set(array[i][4].split('#')[1]).issubset(allowed_chars) and l5 == 7:
@@ -113,7 +115,6 @@ while i < user:
                                                 allowed_chars = set('0123456789')
                                                 if set(array[i][6]).issubset(allowed_chars) and len(array[i][6]) == 9:
                                                     valid2 +=1
-                                                    print(array[i][0:7])
     i += 1
 
 print(f'Valid users part two: {valid2}')
